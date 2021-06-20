@@ -1,0 +1,7 @@
+{
+  "name": "PrecioElectricidad",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
