@@ -3,6 +3,7 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/rea
 import HourContainer from '../components/HourContainer';
 import ValleWeekend from '../components/tarifas/ValleWeekend';
 import TarifaContainer from '../components/tarifas/TarifaContainer';
+import PriceVisualizer from '../components/PriceVisualizer';
 import './Home.css';
 
 function isPunta(hour: number) {
@@ -79,9 +80,10 @@ const Home: React.FC = () => {
 
   return (
     <IonPage>
-      <IonContent fullscreen color={color}>
+      <IonContent fullscreen color={color} className="ion-text-center">
         <HourContainer hour={hour + ":" + (min < 10? ("0" + min): min)} />
         <TarifaContainer start={start} end={end} tarifa={tarifa} description={description}/>
+        <PriceVisualizer />
       </IonContent>
     </IonPage>
   );
