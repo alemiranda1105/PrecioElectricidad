@@ -1,5 +1,4 @@
-import { isNullableTypeAnnotation } from '@babel/types';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonContent, IonPage } from '@ionic/react';
 import HourContainer from '../components/HourContainer';
 import ValleWeekend from '../components/tarifas/ValleWeekend';
 import TarifaContainer from '../components/tarifas/TarifaContainer';
@@ -60,10 +59,10 @@ const Home: React.FC = () => {
     color = "warning";
     description = "Ni la más cara ni la más barata";
     tarifa = "llana";
-    if(hour >= 8) {
+    if(hour >= 8 && hour < 11) {
       start = "08:00";
       end = "10:00";
-    } else if(hour >= 14) {
+    } else if(hour >= 14 && hour < 18) {
       start = "14:00";
       end = "18:00";
     } else {
