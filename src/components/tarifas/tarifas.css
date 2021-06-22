@@ -2,9 +2,8 @@
 
 #dayContainer {
     background-color: white;
-    margin: 1.25%;
+    margin: 5% 15%;
     text-align: center;
-    width: fit-content;
     border-radius: 0.5rem;
     color: black;
 }
