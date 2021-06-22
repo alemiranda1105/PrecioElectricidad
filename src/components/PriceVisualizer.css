@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap');
+
+ion-spinner {
+    --color: black;
+    width: 7.55rem;
+    height: 2.5rem;
+    transform: scale(1.80);
+}
+
+#priceTitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.25rem;
+    padding: 0.75rem;
+    font-weight: bolder;
+}
+
+#priceDesc {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.55rem;
+    font-weight: bolder;
+    padding-right: 1.25rem;
+    padding-left: 1.25rem;
+}
+
+#price {
+    font-family: 'Inconsolata', sans-serif;
+    font-size: 1.55rem;
+    padding-bottom: 0.5rem;
+}
+
+#priceContainer {
+    background-color: white;
+    margin-right: 15%;
+    margin-left: 15%;
+    text-align: center;
+    border-radius: 0.5rem;
+    color: black;
+}

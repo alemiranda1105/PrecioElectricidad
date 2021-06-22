@@ -1,5 +1,6 @@
-import { IonContent, IonPage, IonText } from '@ionic/react';
+import { IonContent, IonPage, IonSpinner, IonText } from '@ionic/react';
 import { Component } from 'react';
+import './PriceVisualizer.css';
 
 function getData() {
     const headersDict = {
@@ -61,9 +62,9 @@ function getData() {
 type PriceProps = {};
 type PriceState = {
     isLoading: boolean,
-    max: Number,
-    min: Number,
-    prom: Number
+    max: number,
+    min: number,
+    prom: number
 };
 class Price extends Component<PriceProps, PriceState> {
     constructor(props: PriceProps) {
@@ -83,13 +84,23 @@ class Price extends Component<PriceProps, PriceState> {
     render() {
         const {isLoading, max, min, prom} = this.state;
         if(isLoading) {
-            return <p>Loading...</p>;
+            return (
+                <div id="priceContainer">
+                    <IonSpinner name="dots" />
+                </div>
+            );
         }
         return (
-            <div>
-                <p>Máximo: {max}</p>
-                <p>Mínimo: {min}</p>
-                <p>Promedio: {prom}</p>
+            <div id="priceContainer">
+                <IonText>
+                    <h1 id="priceTitle">Precios de hoy: </h1>
+                    <p id="priceDesc">Máximo</p>
+                    <p id="price">{max}</p>
+                    <p id="priceDesc">Mínimo</p>
+                    <p id="price">{min}</p>
+                    <p id="priceDesc">Promedio</p>
+                    <p id="price">{Math.round((prom + Number.EPSILON) * 100000)/10000}</p>
+                </IonText>
             </div>
         );
     }
@@ -102,7 +113,7 @@ const PriceVisualizer = () => {
     
     return (
         <div>
-            <Price/>
+            <Price />
         </div>
     );
 };
