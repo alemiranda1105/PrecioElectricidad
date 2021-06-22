@@ -1,4 +1,4 @@
-import { IonContent, IonPage } from '@ionic/react';
+import { IonCol, IonContent, IonGrid, IonPage, IonRow } from '@ionic/react';
 import HourContainer from '../components/HourContainer';
 import ValleWeekend from '../components/tarifas/ValleWeekend';
 import TarifaContainer from '../components/tarifas/TarifaContainer';
@@ -79,10 +79,22 @@ const Home: React.FC = () => {
 
   return (
     <IonPage>
-      <IonContent fullscreen color={color} className="ion-text-center">
-        <HourContainer hour={hour + ":" + (min < 10? ("0" + min): min)} />
-        <TarifaContainer start={start} end={end} tarifa={tarifa} description={description}/>
-        <PriceVisualizer />
+      <IonContent fullscreen color={color}>
+        <IonGrid>
+          <IonRow>
+            <IonCol>
+              <HourContainer hour={hour + ":" + (min < 10? ("0" + min): min)} />
+            </IonCol>
+          </IonRow>
+          <IonRow class="ion-align-items-center">
+            <IonCol>
+              <TarifaContainer start={start} end={end} tarifa={tarifa} description={description}/>
+            </IonCol>
+            <IonCol>
+              <PriceVisualizer />
+            </IonCol>
+          </IonRow>
+        </IonGrid>
       </IonContent>
     </IonPage>
   );

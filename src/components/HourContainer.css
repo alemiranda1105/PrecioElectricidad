@@ -1,16 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
 
-#hour {
-    font-family:'Work Sans', sans-serif;
-    font-size: 4.75rem;
-    padding: 2.50rem;
+@media screen and (min-width: 601px) {
+    #hour {
+        font-family:'Work Sans', sans-serif;
+        font-size: 4.75rem;
+    }
+
+    #hourContainer {
+        background-color: white;
+        text-align: center;
+        border-radius: 0.5rem;
+        color: black;
+        margin: auto 15%;
+    }
 }
 
-#hourContainer {
-    background-color: white;
-    margin: 1.25%;
-    text-align: center;
-    width: fit-content;
-    border-radius: 0.5rem;
-    color: black;
+@media screen and (max-width: 600px) {
+    #hour {
+        font-family:'Work Sans', sans-serif;
+        font-size: 3.75rem;
+    }
+
+    #hourContainer {
+        background-color: white;
+        text-align: center;
+        border-radius: 0.5rem;
+        color: black;
+        margin: auto 5%;
+    }
 }
