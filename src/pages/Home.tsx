@@ -21,7 +21,6 @@ const Home: React.FC = () => {
   const date = new Date();
   const day = date.toLocaleString('es-es', {weekday: 'long'});
   const hour = date.getHours();
-
   const min = date.getMinutes();
 
   // color de fondo
@@ -47,7 +46,7 @@ const Home: React.FC = () => {
   } else if(isPunta(hour)) {
     color = "danger";
     description = "La más cara";
-    tarifa = "punta";
+    tarifa = "punta ⛔";
     if(hour >= 10) {
       start = "10:00";
       end = "14:00";
@@ -58,7 +57,7 @@ const Home: React.FC = () => {
   } else if(isLlana(hour)) {
     color = "warning";
     description = "Ni la más cara ni la más barata";
-    tarifa = "llana";
+    tarifa = "llana ⚠️";
     if(hour >= 8 && hour < 11) {
       start = "08:00";
       end = "10:00";
@@ -72,7 +71,7 @@ const Home: React.FC = () => {
   } else {
     description = "La más barata";
     color = "success";
-    tarifa = "valle";
+    tarifa = "valle ✅";
     start = "00:00";
     end = "08:00";
   }

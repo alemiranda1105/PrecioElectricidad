@@ -104,10 +104,6 @@ class Price extends Component<PriceProps, PriceState> {
 }
 
 const PriceVisualizer = () => {   
-    var data;
-    getData().then(response => data = response);
-    console.log(data);
-    
     return (
         <div>
             <Price />
