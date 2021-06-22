@@ -1,4 +1,4 @@
-import { IonContent, IonPage, IonSpinner, IonText } from '@ionic/react';
+import { IonSpinner, IonText } from '@ionic/react';
 import { Component } from 'react';
 import './PriceVisualizer.css';
 
@@ -51,9 +51,6 @@ function getData() {
             precios.push(val)
         }
         prom = prom / datageo.length;
-        //console.log("maximo = " + max/1000);
-        //console.log("minimo = " + min/1000);
-        //console.log("promedio = " + prom/1000);
 
         return([max/1000, min/1000, prom/1000]);
     });
@@ -95,11 +92,11 @@ class Price extends Component<PriceProps, PriceState> {
                 <IonText>
                     <h1 id="priceTitle">Precios de hoy: </h1>
                     <p id="priceDesc">Máximo</p>
-                    <p id="price">{max}</p>
+                    <p id="price">{max}€/kWh</p>
                     <p id="priceDesc">Mínimo</p>
-                    <p id="price">{min}</p>
+                    <p id="price">{min}€/kWh</p>
                     <p id="priceDesc">Promedio</p>
-                    <p id="price">{Math.round((prom + Number.EPSILON) * 100000)/10000}</p>
+                    <p id="price">{Math.round((prom + Number.EPSILON) * 100000)/100000}€/kWh</p>
                 </IonText>
             </div>
         );
