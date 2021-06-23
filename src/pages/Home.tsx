@@ -86,10 +86,10 @@ const Home: React.FC = () => {
             </IonCol>
           </IonRow>
           <IonRow class="ion-align-items-center">
-            <IonCol>
+            <IonCol sizeLg="6" sizeMd="12" sizeSm="12" sizeXs="12" size="12">
               <TarifaContainer start={start} end={end} tarifa={tarifa} description={description}/>
             </IonCol>
-            <IonCol>
+            <IonCol sizeLg="6" sizeMd="12" sizeSm="12" sizeXs="12" size="12">
               <PriceVisualizer />
             </IonCol>
           </IonRow>
