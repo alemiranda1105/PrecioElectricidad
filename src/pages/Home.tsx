@@ -47,7 +47,7 @@ const Home: React.FC = () => {
     color = "danger";
     description = "La más cara";
     tarifa = "punta ⛔";
-    if(hour >= 10) {
+    if(hour >= 10 && hour < 14) {
       start = "10:00";
       end = "14:00";
     } else {
