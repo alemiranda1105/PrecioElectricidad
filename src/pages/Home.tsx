@@ -21,7 +21,6 @@ const Home: React.FC = () => {
   const date = new Date();
   const day = date.toLocaleString('es-es', {weekday: 'long'});
   const hour = date.getHours();
-  const min = date.getMinutes();
 
   // color de fondo
   var color = "";
@@ -38,7 +37,7 @@ const Home: React.FC = () => {
     return (
       <IonPage>
         <IonContent fullscreen color={color}>
-          <HourContainer hour={hour + ":" + (min < 10? ("0" + min): min)} />
+          <HourContainer />
           <ValleWeekend day={day}/>
         </IonContent>
       </IonPage>
@@ -82,7 +81,7 @@ const Home: React.FC = () => {
         <IonGrid>
           <IonRow>
             <IonCol>
-              <HourContainer hour={hour + ":" + (min < 10? ("0" + min): min)} />
+              <HourContainer />
             </IonCol>
           </IonRow>
           <IonRow class="ion-align-items-center">
