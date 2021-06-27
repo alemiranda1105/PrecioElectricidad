@@ -92,9 +92,9 @@ class Price extends Component<PriceProps, PriceState> {
                 <IonText>
                     <h1 id="priceTitle">Precios de hoy: </h1>
                     <p id="priceDesc">Máximo</p>
-                    <p id="price">{max}€/kWh</p>
+                    <p id="price">{Math.round((max + Number.EPSILON) * 100000)/100000}€/kWh</p>
                     <p id="priceDesc">Mínimo</p>
-                    <p id="price">{min}€/kWh</p>
+                    <p id="price">{Math.round((min + Number.EPSILON) * 100000)/100000}€/kWh</p>
                     <p id="priceDesc">Promedio</p>
                     <p id="price">{Math.round((prom + Number.EPSILON) * 100000)/100000}€/kWh</p>
                 </IonText>
