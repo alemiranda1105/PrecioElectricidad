@@ -21,7 +21,7 @@ const Home: React.FC = () => {
   const date = new Date();
   const day = date.toLocaleString('es-es', {weekday: 'long'});
   const hour = date.getHours();
-
+ 
   // color de fondo
   var color = "";
   // hora de inicio y final del horario

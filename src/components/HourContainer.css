@@ -13,6 +13,16 @@
         color: black;
         margin: auto 15%;
     }
+
+    @media (prefers-color-scheme: dark) {
+        #hourContainer {
+            background-color: rgb(26,26,26);
+            text-align: center;
+            border-radius: 0.5rem;
+            color: white;
+            margin: auto 15%;
+        }
+    }
 }
 
 @media screen and (max-width: 600px) {
@@ -27,5 +37,15 @@
         border-radius: 0.5rem;
         color: black;
         margin: auto 5%;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        #hourContainer {
+            background-color: rgb(26,26,26);
+            text-align: center;
+            border-radius: 0.5rem;
+            color: white;
+            margin: auto 5%;
+        }
     }
 }

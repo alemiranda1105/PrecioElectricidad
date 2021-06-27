@@ -35,3 +35,12 @@ ion-spinner {
     border-radius: 0.5rem;
     color: black;
 }
+
+@media (prefers-color-scheme: dark) {
+    #priceContainer {
+        background-color: rgb(26,26,26);
+        text-align: center;
+        border-radius: 0.5rem;
+        color: white;
+    }
+}
