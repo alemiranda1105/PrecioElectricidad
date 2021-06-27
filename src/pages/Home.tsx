@@ -36,9 +36,32 @@ const Home: React.FC = () => {
     color = "success";
     return (
       <IonPage>
+        <IonHeader>
+          <IonToolbar>
+            <IonTitle>Precio de hoy ⚡</IonTitle>
+          </IonToolbar>
+        </IonHeader>
         <IonContent fullscreen color={color}>
-          <HourContainer />
-          <ValleWeekend day={day}/>
+          <IonHeader collapse="condense">
+            <IonToolbar>
+              <IonTitle size="large">Precio de hoy ⚡</IonTitle>
+            </IonToolbar>
+          </IonHeader>
+          <IonGrid>
+            <IonRow>
+              <IonCol>
+                <HourContainer />
+              </IonCol>
+            </IonRow>
+            <IonRow class="ion-align-items-center">
+              <IonCol sizeLg="6" sizeMd="12" sizeSm="12" sizeXs="12" size="12">
+                <ValleWeekend day={day}/>
+              </IonCol>
+              <IonCol sizeLg="6" sizeMd="12" sizeSm="12" sizeXs="12" size="12">
+                <PriceVisualizer />
+              </IonCol>
+            </IonRow>
+          </IonGrid>
         </IonContent>
       </IonPage>
     );
