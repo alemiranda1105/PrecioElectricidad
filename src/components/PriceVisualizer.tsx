@@ -48,17 +48,18 @@ function getData() {
                 maxInd = i;
             }
             prom += val;
-            precios.push(val)
+            precios.push(val/1000);
         }
         prom = prom / datageo.length;
 
-        return([max/1000, min/1000, prom/1000]);
+        return([precios, max/1000, min/1000, prom/1000]);
     });
 }
 
 type PriceProps = {};
 type PriceState = {
     isLoading: boolean,
+    precios: number[],
     max: number,
     min: number,
     prom: number
@@ -68,6 +69,7 @@ class Price extends Component<PriceProps, PriceState> {
         super(props);
         this.state = {
             isLoading: false,
+            precios: [0],
             max: 0.0,
             min: 0.0,
             prom: 0.0,
@@ -76,10 +78,10 @@ class Price extends Component<PriceProps, PriceState> {
     }
     componentDidMount() {
         this.setState({ isLoading: true })
-        getData().then(data => this.setState({ isLoading: false, max: data[0], min: data[1], prom: data[2] }))
+        getData().then(data => this.setState({ isLoading: false, precios: data[0] as number[], max: data[1] as number, min: data[2] as number, prom: data[3] as number }))
     }
     render() {
-        const {isLoading, max, min, prom} = this.state;
+        const {isLoading, precios, max, min, prom} = this.state;
         if(isLoading) {
             return (
                 <div id="priceContainer">
@@ -87,17 +89,41 @@ class Price extends Component<PriceProps, PriceState> {
                 </div>
             );
         }
+        const hour = new Date().getHours();
+        const nextPrice = () => {
+            if(hour == 23) {
+                return <p id="price">Información no disponible</p>
+            } else {
+                return <p id="price">{Math.round((precios[hour+1] + Number.EPSILON) * 100000)/100000}€/kWh</p>
+            }
+        };
         return (
-            <div id="priceContainer">
-                <IonText>
-                    <h1 id="priceTitle">Precios de hoy: </h1>
-                    <p id="priceDesc">Máximo</p>
-                    <p id="price">{Math.round((max + Number.EPSILON) * 100000)/100000}€/kWh</p>
-                    <p id="priceDesc">Mínimo</p>
-                    <p id="price">{Math.round((min + Number.EPSILON) * 100000)/100000}€/kWh</p>
-                    <p id="priceDesc">Promedio</p>
-                    <p id="price">{Math.round((prom + Number.EPSILON) * 100000)/100000}€/kWh</p>
-                </IonText>
+            <div>
+                <div id="priceContainer">
+                    <IonText>
+                        <p id="priceDesc">Precio actual</p>
+                        <p id="price">{Math.round((precios[hour] + Number.EPSILON) * 100000)/100000}€/kWh</p>
+                        <p id="priceDesc">Próximo precio</p>
+                        {
+                            ((hour == 23)? (
+                                <p id="price">Información no disponible</p>
+                            ) : (
+                                <p id="price">{Math.round((precios[hour+1] + Number.EPSILON) * 100000)/100000}€/kWh</p>
+                            ))
+                        }
+                    </IonText>
+                </div>
+                <div id="priceContainer">
+                    <IonText>
+                        <h1 id="priceTitle">Precios de hoy: </h1>
+                        <p id="priceDesc">Máximo</p>
+                        <p id="price">{Math.round((max + Number.EPSILON) * 100000)/100000}€/kWh</p>
+                        <p id="priceDesc">Mínimo</p>
+                        <p id="price">{Math.round((min + Number.EPSILON) * 100000)/100000}€/kWh</p>
+                        <p id="priceDesc">Promedio</p>
+                        <p id="price">{Math.round((prom + Number.EPSILON) * 100000)/100000}€/kWh</p>
+                    </IonText>
+                </div>
             </div>
         );
     }
