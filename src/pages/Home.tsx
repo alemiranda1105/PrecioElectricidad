@@ -73,13 +73,13 @@ const Home: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar>
+        <IonToolbar mode="md">
           <IonTitle>Precio de hoy ⚡</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen color={color}>
         <IonHeader collapse="condense">
-          <IonToolbar>
+          <IonToolbar mode="md">
             <IonTitle size="large">Precio de hoy ⚡</IonTitle>
           </IonToolbar>
         </IonHeader>
