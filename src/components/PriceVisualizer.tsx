@@ -78,7 +78,16 @@ class Price extends Component<PriceProps, PriceState> {
     }
     componentDidMount() {
         this.setState({ isLoading: true })
-        getData().then(data => this.setState({ isLoading: false, precios: data[0] as number[], max: data[1] as number, min: data[2] as number, prom: data[3] as number }))
+        getData()
+        .then(data => 
+            this.setState({ 
+                isLoading: false, 
+                precios: data[0] as number[],
+                max: data[1] as number, 
+                min: data[2] as number, 
+                prom: data[3] as number 
+            })
+        );
     }
     render() {
         const {isLoading, precios, max, min, prom} = this.state;
